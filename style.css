@@ -1,0 +1,35 @@
+*{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    padding: 100px;
+}
+
+h3 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.containerTitle {
+    height: 300px;
+}
+
+.bi {
+    display: block;
+    margin: auto
+}
+
+canvas {
+    display : block ; 
+    
+    margin: auto;
+    
+    
+}
