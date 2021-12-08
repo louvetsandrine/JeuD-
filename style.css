@@ -33,3 +33,7 @@ canvas {
     
     
 }
+
+.bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down {
+    padding-right: 15px;
+}
