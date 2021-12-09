@@ -4,7 +4,11 @@
 }
 
 .container {
-    padding: 100px;
+    margin-top: 10em;
+    padding: 5em;
+    border: ridge rgb(235, 156, 11);
+    border-width: 6px;
+    
 }
 
 h3 {
@@ -18,7 +22,7 @@ h2 {
 }
 
 .containerTitle {
-    height: 300px;
+   
 }
 
 .dice {
@@ -28,12 +32,19 @@ h2 {
 
 canvas {
     display : block ; 
-    
     margin: auto;
-    
-    
 }
 
 .bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down {
     padding-right: 15px;
+    cursor: pointer;
 }
+
+.bi-circle-fill {
+    
+}
+
+h3 {
+    padding-right: 0.5em;
+}
+
