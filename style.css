@@ -11,21 +11,27 @@
     
 }
 
-h3 {
-    font-size: 2em;
-    text-align: center;
+h1 {
+    font-size: 3em;
 }
 
 h2 {
     font-size: 3em;
-    text-align: center;
 }
+
+h3 {
+    font-size: 2em;
+    text-align: center;
+    padding-right: 0.5em;
+}
+
+
 
 .containerTitle {
    
 }
 
-.dice {
+#diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix, #imgRollDice {
     display: block;
     margin: auto
 }
@@ -39,7 +45,5 @@ h2 {
     
 }
 
-h3 {
-    padding-right: 0.5em;
-}
+
 
