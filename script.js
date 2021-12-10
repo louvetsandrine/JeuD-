@@ -1,20 +1,9 @@
-const canvas = document.getElementById("canvas");
-let ctx;
 const buttonStart = document.getElementById("startButton");
 const startPlayerOne = document.getElementById("startPlayerOne");
 const buttonRollDice = document.getElementById("buttonRollDice");
 const buttonHold = document.getElementById("buttonHold");
 const diceSpae = document.getElementById("diceSpace");
 
-
-
-if (canvas.getContext) {
-   ctx = canvas.getContext("2d") ;
-   ctx.strokeStyle = "red";
-   ctx.strokeRect(0, 0, 150,150)
-} else {
-   console.log("canvas no supported")
- };
 
 buttonStart.addEventListener("click", ()=>{
    startPlayerOne.style.color = "red"

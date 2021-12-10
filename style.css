@@ -4,10 +4,10 @@
 }
 
 .container {
-    margin-top: 10em;
-    padding: 5em;
-    border: ridge rgb(235, 156, 11);
-    border-width: 6px;
+    
+    padding: 2em;
+    /* border: ridge rgb(235, 156, 11);
+    border-width: 6px; */
     
 }
 
@@ -28,11 +28,6 @@ h2 {
 .dice {
     display: block;
     margin: auto
-}
-
-canvas {
-    display : block ; 
-    margin: auto;
 }
 
 .bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down {
