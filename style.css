@@ -13,23 +13,23 @@
 
 h1 {
     font-size: 3em;
+    font-weight: 800;
 }
 
 h2 {
     font-size: 3em;
+    font-weight: 800;
 }
 
 h3 {
     font-size: 2em;
     text-align: center;
     padding-right: 0.5em;
+    font-weight: 800;
 }
 
 
 
-.containerTitle {
-   
-}
 
 #diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix, #imgRollDice {
     display: block;
@@ -37,13 +37,15 @@ h3 {
 }
 
 .bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down {
-    padding-right: 15px;
+    padding-right: 1em;
     cursor: pointer;
 }
 
-.bi-circle-fill {
-    
+.btn {
+    width: 18em;
+    font-weight: 800;
 }
 
-
-
+#diceScore {
+    padding-top: 2em;
+}
