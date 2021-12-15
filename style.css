@@ -36,16 +36,20 @@ h3 {
     margin: auto
 }
 
-.bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down {
+.bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down, .bi-piggy-bank {
     padding-right: 1em;
     cursor: pointer;
 }
 
 .btn {
-    width: 18em;
+    width: 17em;
     font-weight: 800;
 }
 
 #diceScore {
-    padding-top: 2em;
+   font-size: 1.5em;
+   padding-top: 2em;
+   font-weight: 800;
+  
 }
+
