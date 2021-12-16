@@ -12,20 +12,20 @@
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: 800;
+    font-size: 4em;
+    font-weight: 900;
 }
 
 h2 {
     font-size: 3em;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 h3 {
     font-size: 2em;
     text-align: center;
     padding-right: 0.5em;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 
@@ -43,13 +43,13 @@ h3 {
 
 .btn {
     width: 17em;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 #diceScore {
    font-size: 1.5em;
    padding-top: 2em;
-   font-weight: 800;
+   font-weight: 700;
   
 }
 

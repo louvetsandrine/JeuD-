@@ -10,6 +10,10 @@ const diceThree = document.getElementById("diceThree");
 const diceFour = document.getElementById("diceFour");
 const diceFive = document.getElementById("diceFive");
 const diceSix = document.getElementById("diceSix");
+const diceScorePlayerOne = document.getElementById("diceScorePlayerOne");
+const diceScorePlayerTwo = document.getElementById("diceScorePlayerTwo");
+const walletPlayerOne = document.getElementById("walletPlayerOne");
+const walletPlayerTwo = document.getElementById("walletPlayerTwo");
 
 
 buttonStart.addEventListener("click", ()=>{
@@ -18,7 +22,8 @@ buttonStart.addEventListener("click", ()=>{
 })
 
 buttonRollDice.addEventListener("click", ()=>{
-   console.log("buttonRollDice")
+   
+   let scoreStart = 0;
 
    const dice = [ 
       {
@@ -50,7 +55,9 @@ buttonRollDice.addEventListener("click", ()=>{
 
    console.log(randomNumber)
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
-
+   scoreStart += dice[randomNumber]["score"];
+   console.log("rrr", scoreStart)
+   diceScorePlayerOne.innerHTML = scoreStart;
 
 })
 
