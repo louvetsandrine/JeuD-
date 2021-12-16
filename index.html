@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
-   
+    <script src="https://kit.fontawesome.com/bdf85f2fc5.js" crossorigin="anonymous"></script>
   </head>
  
   <body>
@@ -24,10 +24,14 @@
       </div>
       <div class="row py-5 d-flex justify-content-center align-items-center text-center">
         <div class="col-12">
-          <button class="btn btn-primary btn-lg" id="buttonStart">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle text-danger" viewBox="0 0 16 16" >
+          <button class="btn btn-success btn-lg" id="buttonStart">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" >
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-skip-start-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M10.229 5.055a.5.5 0 0 0-.52.038L7 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407v-5a.5.5 0 0 0-.271-.445z"/>
             </svg>
             NOUVELLE PARTIE
           </button>
@@ -36,7 +40,7 @@
 
       <div class="row py-2 d-flex justify-content-center align-items-center">
         <div class="col-4 d-flex justify-content-center align-items-center">
-          <h3>Joueur n°1</h3>
+          <h3>Joueur n°1 </h3>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-circle-fill " viewBox="0 0 16 16" id="startPlayerOne">
             <circle cx="8" cy="8" r="8"/>
           </svg>
@@ -51,7 +55,7 @@
     
       <div class="row py-2 d-flex justify-content-center align-items-center text-center containerScore">
         <div class="col-4">
-          <h2 class="text-danger" id="diceScorePlayerOne"></h2>
+          <h2 class="text-danger" id="diceScorePlayerOne">0</h2>
         </div>
         <div class="col-4 " id="diceSpace" >
           <img src="images/rollDice.png" id="imgRollDice" height="200" />

@@ -29,14 +29,12 @@ h3 {
 }
 
 
-
-
 #diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix, #imgRollDice {
     display: block;
     margin: auto
 }
 
-.bi-plus-circle, .bi-arrow-repeat, .bi-box-arrow-in-down, .bi-piggy-bank {
+.bi-skip-start-circle, .bi-arrow-repeat, .bi-box-arrow-in-down, .bi-piggy-bank {
     padding-right: 1em;
     cursor: pointer;
 }
