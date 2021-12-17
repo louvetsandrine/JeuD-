@@ -47,19 +47,21 @@ let scoreStart = 0;
 
 
 buttonStart.addEventListener("click", ()=>{
-   console.log("buttonStart cliqué")
-   startPlayerOne.style.color = "red"
+   console.log("buttonStart cliqué");
+
+   buttonStart.className += " disabled";
+   buttonRollDice.className += "active";
+   buttonHold.className += "active";
+   startPlayerOne.style.color = "red";
 })
 
 buttonRollDice.addEventListener("click", ()=>{
    
    const randomNumber = Math.floor(Math.random()*dice.length);
+   console.log(randomNumber);
 
-
-   console.log(randomNumber)
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
    scoreStart += dice[randomNumber]["score"];
-   console.log("rrr", scoreStart)
    diceScorePlayerOne.innerHTML = scoreStart;
 
 
