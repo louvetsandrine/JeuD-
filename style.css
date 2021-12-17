@@ -14,26 +14,29 @@ body {
     border-width: 6px; */
 }
 
-h1 {
-    font-size: 4em;
+.h1 {
     font-weight: 900;
+    font-size: 5vw;
 }
 
-h2 {
-    font-size: 3em;
+.textPlayer {
+    font-size: 2.75vw;
     font-weight: 700;
 }
 
-h3 {
-    font-size: 2em;
+.textScore {
+    font-size: 2vw;
+    
+}
+
+.h3 {
+    font-size: 2vw;
     text-align: center;
-    padding-right: 0.5em;
+    padding-right: 0.5vw;
     font-weight: 700;
 }
 
-p {
-    font-size: 2em;
-}
+
 
 
 #diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix, #imgRollDice {
@@ -42,22 +45,23 @@ p {
 }
 
 .bi-skip-start-circle, .bi-arrow-repeat, .bi-box-arrow-in-down, .bi-piggy-bank {
-    padding-right: 1em;
+    padding-right: 1vw;
     cursor: pointer;
 }
 
 .bi-circle-fill {
-    margin-left: -3em;
+    margin-left: 1vw;
 }
 
 .btn {
-    width: 17em;
+    
     font-weight: 700;
+    font-size: 1vw;
 }
 
 #diceScore {
-   font-size: 1.5em;
-   padding-top: 2em;
+   font-size: 2vw;
+   padding-top: 2vw;
    font-weight: 700;
   
 }
