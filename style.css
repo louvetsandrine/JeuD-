@@ -4,14 +4,20 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, rgba(255,128,255,0.5), rgba(0,0,128,0.5));
-
+    /* background-image: linear-gradient(to bottom, rgba(255,128,255,0.5), rgba(0,0,128,0.5)); */
+    margin: 0;
+    padding: 0;
 }
 
-.container {
+.container-fluid {
     
     /* border: ridge rgb(235, 156, 11);
     border-width: 6px; */
+    background-image: linear-gradient(to bottom, rgba(255,128,255,0.5), rgba(0,0,128,0.5));
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
 }
 
 .h1 {
@@ -39,41 +45,33 @@ body {
 
 #diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix, #imgRollDice {
     display: block;
-    margin: auto
+    margin: auto;
+    background-color: aliceblue;
 }
 
-.bi-skip-start-circle, .bi-arrow-repeat, .bi-box-arrow-in-down, .bi-piggy-bank {
-    padding-right: 1vw;
+i {
+    font-size: 1vw;
+    margin-right: 0.5vw;
     cursor: pointer;
+    
 }
 
-.bi-circle-fill {
-    margin-left: 1vw;
+.fa-circle {
+    vertical-align: middle;
 }
+
+
 
 .btn {
     
     font-weight: 700;
     font-size: 1vw;
-    border-radius: 8vw;
-    box-shadow:3px 8px #000;
+    border-radius: 5vw;
+    box-shadow:1.5px 8px #000;
     
 }
 
-.btn::before {
-    transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		content: '';
-		width: 50%;
-		height: 100%;
-		
-		background: black;
-		
-}
 
-.btn:hover {
-    background: black;
-			width: 100%;
-}
 
 #diceScore {
    font-size: 2vw;
