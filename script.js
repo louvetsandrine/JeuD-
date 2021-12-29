@@ -66,7 +66,8 @@ buttonRollDice.addEventListener("click", ()=>{
    let randomNumber = Math.floor(Math.random()*dice.length);
    console.log(randomNumber);
 
-   diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
+   diceSpace.innerHTML = ' <div class="loader"></div> '
+   // diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
    scoreStartOne += dice[randomNumber]["score"];
    diceScorePlayerOne.innerHTML = scoreStartOne;
 
