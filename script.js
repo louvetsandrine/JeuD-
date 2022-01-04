@@ -30,7 +30,7 @@ const dice = [
       score:3
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-4.png" id="diceFour"/>',
+      picture:'<img class="img-fluid" src="images/dice-4.png" id="diceFour"">',
       score:4
    },
    {
@@ -59,6 +59,8 @@ buttonStart.addEventListener("click", ()=>{
 
 })
 
+
+
 buttonRollDice.addEventListener("click", ()=>{
 
    player = player == "one"? "two" : "one";
@@ -66,8 +68,7 @@ buttonRollDice.addEventListener("click", ()=>{
    let randomNumber = Math.floor(Math.random()*dice.length);
    console.log(randomNumber);
 
-   diceSpace.innerHTML = ' <div class="loader"></div> '
-   // diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
+   diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
    scoreStartOne += dice[randomNumber]["score"];
    diceScorePlayerOne.innerHTML = scoreStartOne;
 
