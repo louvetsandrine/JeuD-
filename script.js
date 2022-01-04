@@ -16,6 +16,7 @@ const diceScorePlayerTwo = document.getElementById("diceScorePlayerTwo");
 const walletPlayerOne = document.getElementById("walletPlayerOne");
 const walletPlayerTwo = document.getElementById("walletPlayerTwo");
 
+
 const dice = [ 
    {
       picture:'<img class="img-fluid" src="images/dice-1.png" id="diceOne"/>', 
@@ -45,14 +46,30 @@ const dice = [
 
 let scoreStartOne = 0;
 let scoreStartTwo = 0;
-let player = "one";
+
+let playerActive, roundScore, gamePlaying
 
 
 
 buttonStart.addEventListener("click", ()=>{
    console.log("buttonStart cliqué");
 
-   buttonStart.className += " disabled";
+   activePlayer = 0;
+   roundScore = 0;
+   gamePlaying = true;
+   
+   diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';
+
+   diceScorePlayerOne.innerHTML = '0';
+   diceScorePlayerTwo.innerHTML = '0';
+   walletPlayerOne.innerHTML = '0';
+   walletPlayerTwo.innerHTML = '0';
+   // document.querySelector('.player-0-panel').classList.remove('winner');
+   // document.querySelector('.player-1-panel').classList.remove('winner');
+   // document.querySelector('.player-0-panel').classList.remove('active');
+   // document.querySelector('.player-1-panel').classList.remove('active');
+   // document.querySelector('.player-0-panel').classList.add('active');
+
    buttonRollDice.className += "active";
    buttonHold.className += "active";
    startPlayerOne.style.color = "red";
@@ -62,23 +79,30 @@ buttonStart.addEventListener("click", ()=>{
 
 
 buttonRollDice.addEventListener("click", ()=>{
-
-   player = player == "one"? "two" : "one";
    
    let randomNumber = Math.floor(Math.random()*dice.length);
    console.log(randomNumber);
 
-   diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
-   scoreStartOne += dice[randomNumber]["score"];
-   diceScorePlayerOne.innerHTML = scoreStartOne;
+   if(gamePlaying){
 
-   if(dice[randomNumber]["score"] === 1){
-      startPlayerOne.style.color = "black";
-      startPlayerTwo.style.color = "red";
-      diceScorePlayerOne.innerHTML = 0;
-      scoreStartTwo += dice[randomNumber]["score"];
-      diceScorePlayerTwo.innerHTML = scoreStartTwo;
+      if(dice[randomNumber]["score"] != 1){
+         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
+         scoreStartOne += dice[randomNumber]["score"];
+         diceScorePlayerOne.innerHTML = scoreStartOne;
+      
+         // startPlayerOne.style.color = "black";
+         // startPlayerTwo.style.color = "red";
+         // diceScorePlayerOne.innerHTML = 0;
+         // scoreStartTwo += dice[randomNumber]["score"];
+         // console.log("scorestarttwo", scoreStartTwo)
+         // diceScorePlayerTwo.innerHTML = scoreStartTwo;
+      } else {
+         nextPlayer()
+      }
+   
    }
+
+
 
 
 })
@@ -86,8 +110,30 @@ buttonRollDice.addEventListener("click", ()=>{
 
 
 buttonHold.addEventListener("click", ()=>{
+   if(gamePlaying){
+      console.log("tt", scoreStartOne)
+      walletPlayerOne.innerHTML = scoreStartOne;
+      
+   }
    
-   console.log("tt", scoreStartOne)
-   walletPlayerOne.innerHTML = scoreStartOne;
 
 })
+
+
+
+function nextPlayer() {
+   //Next player
+   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+   roundScore = 0;
+
+   document.getElementById('current-0').textContent = '0';
+   document.getElementById('current-1').textContent = '0';
+
+   document.querySelector('.player-0-panel').classList.toggle('active');
+   document.querySelector('.player-1-panel').classList.toggle('active');
+
+   //document.querySelector('.player-0-panel').classList.remove('active');
+   //document.querySelector('.player-1-panel').classList.add('active');
+
+   document.querySelector('.dice').style.display = 'none';
+}
