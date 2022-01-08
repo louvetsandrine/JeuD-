@@ -54,7 +54,7 @@ let playerActive, roundScore, gamePlaying
 buttonStart.addEventListener("click", ()=>{
    console.log("buttonStart cliqué");
 
-   activePlayer = 0;
+   activePlayer = 'One';
    roundScore = 0;
    gamePlaying = true;
    
@@ -79,16 +79,19 @@ buttonStart.addEventListener("click", ()=>{
 
 
 buttonRollDice.addEventListener("click", ()=>{
-   
+   console.log("activeplayer", activePlayer);
+
    let randomNumber = Math.floor(Math.random()*dice.length);
+   roundScore = dice[randomNumber]["score"]
    console.log(randomNumber);
 
    if(gamePlaying){
 
       if(dice[randomNumber]["score"] != 1){
-         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + dice[randomNumber]["score"] + '</p>';
-         scoreStartOne += dice[randomNumber]["score"];
-         diceScorePlayerOne.innerHTML = scoreStartOne;
+         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + roundScore + '</p>';
+         roundScore += randomNumber;
+         document.getElementById("diceScorePlayer"+activePlayer).innerHTML = roundScore;
+         // diceScorePlayerOne.innerHTML = scoreStartOne;
       
          // startPlayerOne.style.color = "black";
          // startPlayerTwo.style.color = "red";
@@ -123,17 +126,20 @@ buttonHold.addEventListener("click", ()=>{
 
 function nextPlayer() {
    //Next player
-   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+   activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;
 
-   document.getElementById('current-0').textContent = '0';
-   document.getElementById('current-1').textContent = '0';
+   document.getElementById("diceScorePlayerOne").innerHTML = "0";
+   document.getElementById("diceScorePlayerTwo").innerHTML = "0";
 
-   document.querySelector('.player-0-panel').classList.toggle('active');
-   document.querySelector('.player-1-panel').classList.toggle('active');
+   // document.querySelector('.player-0-panel').classList.toggle('active');
+   // document.querySelector('.player-1-panel').classList.toggle('active');
 
    //document.querySelector('.player-0-panel').classList.remove('active');
    //document.querySelector('.player-1-panel').classList.add('active');
 
-   document.querySelector('.dice').style.display = 'none';
+   // document.querySelector('.dice').style.display = 'none';
+
+   diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';
+
 }
