@@ -44,26 +44,26 @@ const dice = [
    }
 ]
 
-let scoreStartOne = 0;
-let scoreStartTwo = 0;
+// var scoreStartOne = 0;
+// var scoreStartTwo = 0;
 
-let playerActive, roundScore, gamePlaying
+var playerActive, roundScore, gamePlaying;
 
 
 
 buttonStart.addEventListener("click", ()=>{
    console.log("buttonStart cliqué");
 
-   activePlayer = 'One';
+   activePlayer = "One";
    roundScore = 0;
    gamePlaying = true;
    
    diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';
 
-   diceScorePlayerOne.innerHTML = '0';
-   diceScorePlayerTwo.innerHTML = '0';
-   walletPlayerOne.innerHTML = '0';
-   walletPlayerTwo.innerHTML = '0';
+   diceScorePlayerOne.innerHTML = "0";
+   diceScorePlayerTwo.innerHTML = "0";
+   walletPlayerOne.innerHTML = "0";
+   walletPlayerTwo.innerHTML = "0";
    // document.querySelector('.player-0-panel').classList.remove('winner');
    // document.querySelector('.player-1-panel').classList.remove('winner');
    // document.querySelector('.player-0-panel').classList.remove('active');
@@ -81,24 +81,22 @@ buttonStart.addEventListener("click", ()=>{
 buttonRollDice.addEventListener("click", ()=>{
    console.log("activeplayer", activePlayer);
 
-   let randomNumber = Math.floor(Math.random()*dice.length);
-   roundScore = dice[randomNumber]["score"]
+   var randomNumber = Math.floor(Math.random()*dice.length);
+   
    console.log(randomNumber);
+   console.log("roundscore", roundScore);
 
    if(gamePlaying){
 
       if(dice[randomNumber]["score"] != 1){
-         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + roundScore + '</p>';
-         roundScore += randomNumber;
-         document.getElementById("diceScorePlayer"+activePlayer).innerHTML = roundScore;
+         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
+         roundScore += (randomNumber + 1);
+         console.log("roundScore += randomNumber: ", roundScore);
+
+         document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
          // diceScorePlayerOne.innerHTML = scoreStartOne;
       
-         // startPlayerOne.style.color = "black";
-         // startPlayerTwo.style.color = "red";
          // diceScorePlayerOne.innerHTML = 0;
-         // scoreStartTwo += dice[randomNumber]["score"];
-         // console.log("scorestarttwo", scoreStartTwo)
-         // diceScorePlayerTwo.innerHTML = scoreStartTwo;
       } else {
          nextPlayer()
       }
@@ -131,6 +129,10 @@ function nextPlayer() {
 
    document.getElementById("diceScorePlayerOne").innerHTML = "0";
    document.getElementById("diceScorePlayerTwo").innerHTML = "0";
+   activePlayer === "One" ? startPlayerOne.style.color = "black" : startPlayerOne.style.color = "red";
+   activePlayer === "One" ? startPlayerTwo.style.color = "red" : startPlayerTwo.style.color = "black";
+
+     
 
    // document.querySelector('.player-0-panel').classList.toggle('active');
    // document.querySelector('.player-1-panel').classList.toggle('active');
