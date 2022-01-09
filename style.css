@@ -33,7 +33,7 @@ body {
     color: white;
 }
 
-.textPlayer {
+#textPlayerOne, #textPlayerTwo, .textScoreTemporaryOne, .textScoreTemporaryTwo, .textWallet {
     font-size: 30px;
     font-weight: 700;
    
@@ -153,5 +153,6 @@ i {
 }
 
   
-
-
+.startPlayerButton {
+  color: red;
+}

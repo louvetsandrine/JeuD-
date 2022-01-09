@@ -1,6 +1,8 @@
 const buttonStart = document.getElementById("buttonStart");
 const startPlayerOne = document.getElementById("startPlayerOne");
 const startPlayerTwo = document.getElementById("startPlayerTwo");
+const textPlayerOne = document.getElementById("textPlayerOne");
+const textPlayerTwo = document.getElementById("textPlayerTwo");
 const buttonRollDice = document.getElementById("buttonRollDice");
 const buttonHold = document.getElementById("buttonHold");
 const diceSpace = document.getElementById("diceSpace");
@@ -47,7 +49,7 @@ const dice = [
 // var scoreStartOne = 0;
 // var scoreStartTwo = 0;
 
-var playerActive, roundScore, gamePlaying;
+var playerActive, roundScore, gamePlaying, walletOne = 0, walletTwo = 0;
 
 
 
@@ -64,16 +66,11 @@ buttonStart.addEventListener("click", ()=>{
    diceScorePlayerTwo.innerHTML = "0";
    walletPlayerOne.innerHTML = "0";
    walletPlayerTwo.innerHTML = "0";
-   // document.querySelector('.player-0-panel').classList.remove('winner');
-   // document.querySelector('.player-1-panel').classList.remove('winner');
-   // document.querySelector('.player-0-panel').classList.remove('active');
-   // document.querySelector('.player-1-panel').classList.remove('active');
-   // document.querySelector('.player-0-panel').classList.add('active');
-
    buttonRollDice.className += "active";
    buttonHold.className += "active";
-   startPlayerOne.style.color = "red";
-
+   startPlayerOne.classList.toggle("startPlayerButton");
+   textPlayerOne.classList.toggle("startPlayerButton");
+   textPlayerTwo.classList.remove("startPalyerButton")
 })
 
 
@@ -92,32 +89,24 @@ buttonRollDice.addEventListener("click", ()=>{
          diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
          roundScore += (randomNumber + 1);
          console.log("roundScore += randomNumber: ", roundScore);
-
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
-         // diceScorePlayerOne.innerHTML = scoreStartOne;
-      
-         // diceScorePlayerOne.innerHTML = 0;
       } else {
          nextPlayer()
       }
-   
    }
-
-
-
-
 })
 
 
 
 buttonHold.addEventListener("click", ()=>{
    if(gamePlaying){
-      console.log("tt", scoreStartOne)
-      walletPlayerOne.innerHTML = scoreStartOne;
+      activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
+      console.log("tt", walletOne)
+
+      activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
+      nextPlayer();
       
    }
-   
-
 })
 
 
@@ -127,10 +116,14 @@ function nextPlayer() {
    activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;
 
+   console.log("textplayerone", textPlayerOne)
+
    document.getElementById("diceScorePlayerOne").innerHTML = "0";
    document.getElementById("diceScorePlayerTwo").innerHTML = "0";
-   activePlayer === "One" ? startPlayerOne.style.color = "black" : startPlayerOne.style.color = "red";
-   activePlayer === "One" ? startPlayerTwo.style.color = "red" : startPlayerTwo.style.color = "black";
+   startPlayerOne.classList.toggle("startPlayerButton");
+   startPlayerTwo.classList.toggle("startPlayerButton");
+   textPlayerOne.classList.toggle("startPlayerButton");
+   textPlayerTwo.classList.toggle("startPlayerButton");
 
      
 
@@ -142,6 +135,6 @@ function nextPlayer() {
 
    // document.querySelector('.dice').style.display = 'none';
 
-   diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';
+   diceSpace.innerHTML = dice[0]["picture"] + '<p id="diceScore">Résultat: 1</p>';
 
 }
