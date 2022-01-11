@@ -156,3 +156,8 @@ i {
 .startPlayerButton {
   color: red;
 }
+
+span {
+  font-weight: 800;
+  color: red;
+}

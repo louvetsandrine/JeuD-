@@ -1,4 +1,5 @@
 const buttonStart = document.getElementById("buttonStart");
+// const buttonRules = document.getElementById("buttonRules");
 const startPlayerOne = document.getElementById("startPlayerOne");
 const startPlayerTwo = document.getElementById("startPlayerTwo");
 const textPlayerOne = document.getElementById("textPlayerOne");
@@ -51,8 +52,6 @@ const dice = [
 
 var playerActive, roundScore, gamePlaying, walletOne = 0, walletTwo = 0;
 
-
-
 buttonStart.addEventListener("click", ()=>{
    console.log("buttonStart cliqué");
 
@@ -70,7 +69,8 @@ buttonStart.addEventListener("click", ()=>{
    buttonHold.className += "active";
    startPlayerOne.classList.toggle("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
-   textPlayerTwo.classList.remove("startPalyerButton")
+   textPlayerTwo.classList.remove("startPlayerButton");
+   
 })
 
 
@@ -104,7 +104,19 @@ buttonHold.addEventListener("click", ()=>{
       console.log("tt", walletOne)
 
       activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
-      nextPlayer();
+      
+      if (walletOne >= 10 || walletTwo >= 10) {
+         activePlayer === "One" ?(diceSpace.innerHTML = '<p style = "font-size: 30px;">Féliciations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné<p/>') : 
+         (diceSpace.innerHTML = '<p style = "font-size: 30px;">Féliciations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/>');
+         
+        
+         // document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+         // document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+         gamePlaying = false;
+     } else {
+         //Next player
+         nextPlayer();
+     }
       
    }
 })
