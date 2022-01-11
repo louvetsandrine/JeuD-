@@ -82,11 +82,12 @@ buttonRollDice.addEventListener("click", ()=>{
    
    console.log(randomNumber);
    console.log("roundscore", roundScore);
+   diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
 
    if(gamePlaying){
 
-      if(dice[randomNumber]["score"] != 1){
-         diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
+      if( (randomNumber+1) !== 1){
+         
          roundScore += (randomNumber + 1);
          console.log("roundScore += randomNumber: ", roundScore);
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
@@ -106,8 +107,8 @@ buttonHold.addEventListener("click", ()=>{
       activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
       
       if (walletOne >= 10 || walletTwo >= 10) {
-         activePlayer === "One" ?(diceSpace.innerHTML = '<p style = "font-size: 30px;">Féliciations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné<p/>') : 
-         (diceSpace.innerHTML = '<p style = "font-size: 30px;">Féliciations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/>');
+         activePlayer === "One" ?(document.getElementsByClassName("containerPage").innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné<p/>') : 
+         (diceSpace.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/>');
          
         
          // document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -147,6 +148,6 @@ function nextPlayer() {
 
    // document.querySelector('.dice').style.display = 'none';
 
-   diceSpace.innerHTML = dice[0]["picture"] + '<p id="diceScore">Résultat: 1</p>';
+   // diceSpace.innerHTML = dice[0]["picture"] + '<p id="diceScore">Résultat: 1</p>';
 
 }

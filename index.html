@@ -17,7 +17,7 @@
  
   <body class="vh-100">
     
-    <div class="containerPage container" data-bs-toggle="modal" data-bs-target="#exampleModal">      
+    <div class="containerPage container">      
       <div class=" d-flex text-center justify-content-center align-items-center">
           <p class="h1">DICE ROLL</p>
       </div>
@@ -26,30 +26,30 @@
             <i class="far fa-play-circle"></i>
             NOUVELLE PARTIE
           </button>
-          <button type="button" class="btn btn-success btn-lg" id="buttonRules" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="far fa-play-circle"></i>
+          <button type="button" class="btn btn-secondary btn-lg" id="buttonRules" data-bs-toggle="modal" data-bs-target="#modalRules">
+            <i class="fas fa-book"></i>
             REGLES DU JEU
           </button>
       </div>
 
      
       <!-- Modal -->
-      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalRules" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Règles du jeu</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <ul>
-                <li>Le jeu se joue avec <span>deux joueurs</span>.</li>
-                <li>Chaque joueur a un score temporaire et un score total.</li>
-                <li>À chaque tour, le joueur a son score temporaire initialisé à 0 et peut lancer le dé autant de fois qu'il le souhaite. </li>
+                <li>Le jeu se joue avec <span> 2 joueurs</span>.</li>
+                <li>Chaque joueur a un <span>score temporaire</span> et un <span>score total</span>.</li>
+                <li>À chaque tour, le joueur a son <span>temporaire initialisé à 0</span>  et peut <span> le dé autant de fois qu'il le souhaite</span>. </li>
                 <li>Le résultat du dé est ajouté à chaque fois au score temporaire.</li>
-                <li>A tout moment, le joueur peut décider de sécuriser son gain en cliquant sur le bouton "Sécuriser". Ce sera alors le tour à l'autre joueur.</li>
-                <li>Si le résultat du dé est de 1, le joueur perd son score temporaire et c'est au tour de l'autre joueur.</li>
-                <li>Le premier joueur qui a atteint un score total de 100 a gagné.</li>
+                <li>A tout moment, le joueur peut décider de <span>sécuriser son gain</span> en cliquant sur le bouton "Sécuriser". Ce sera alors le tour à l'autre joueur.</li>
+                <li>Si le <span>résultat du dé est de 1</span>, le joueur <span> son score temporaire </span> et c'est au tour de l'autre joueur.</li>
+                <li><span>Le premier joueur qui a atteint un score total de 100 a gagné</span> .</li>
               </ul>
             </div>
             <div class="modal-footer">
@@ -58,16 +58,8 @@
           </div>
         </div>
       </div>
- -->
-      
-      <!-- <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-secondary">Commande</button>
-      <div class="modal" id="infos">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            Contenu de la fenêtre modale
-          </div>
-        </div>
-      </div> -->
+
+
 
       <!-- <div class="d-flex justify-content-center align-items-center ">
         <div class=" ">
@@ -131,6 +123,7 @@
               SECURISER VOTRE GAIN
             </button>
           </p>
+          
         </div>
       </div> 
     

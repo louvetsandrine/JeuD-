@@ -127,7 +127,7 @@ i {
     
 }
 
-#buttonRollDice {
+#buttonRollDice, #buttonStart {
     margin-right: 10px;
 }
 
@@ -157,7 +157,6 @@ i {
   color: red;
 }
 
-span {
-  font-weight: 800;
-  color: red;
+span, #exampleModalLabel {
+  font-weight: 600;
 }
