@@ -102,14 +102,14 @@ buttonRollDice.addEventListener("click", ()=>{
 buttonHold.addEventListener("click", ()=>{
    if(gamePlaying){
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
-      console.log("tt", walletOne)
 
       activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
       
       if (walletOne >= 10 || walletTwo >= 10) {
-         activePlayer === "One" ?(document.getElementsByClassName("containerPage").innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné<p/>') : 
+         activePlayer === "One" ?(document.getElementsByClassName("containerScore")[0].innerHTML = '<div style = "margin-top: 50vh;transform: translateY(-50%); font-size: 30px; text-align: center; color: white; font-weight: 800; ">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px; margin-left: 5px; "> Joueur n°1</span>, vous avez gagné!!</div>') : 
          (diceSpace.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/>');
-         
+         buttonRollDice.classList.remove("active");
+         buttonHold.classList.remove("active");
         
          // document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
          // document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');

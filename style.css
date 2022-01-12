@@ -15,6 +15,11 @@ body {
     background-color:white;
 }
 
+.containerPage {
+  vertical-align: middle;
+
+}
+
 .containerScore {
     /* background-image: linear-gradient(to bottom, rgba(255,128,255,0.5), grey); */
     background-color: white;
