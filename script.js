@@ -65,11 +65,14 @@ buttonStart.addEventListener("click", ()=>{
    diceScorePlayerTwo.innerHTML = "0";
    walletPlayerOne.innerHTML = "0";
    walletPlayerTwo.innerHTML = "0";
-   buttonRollDice.className += "active";
-   buttonHold.className += "active";
+   buttonRollDice.classList.replace( "disabled", "active" );
+   buttonHold.classList.replace( "disabled", "active" );
    startPlayerOne.classList.toggle("startPlayerButton");
+   startPlayerTwo.classList.remove("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
+   document.getElementsByClassName("alert")[0].style.display = "none";
+
    
 })
 
@@ -104,15 +107,14 @@ buttonHold.addEventListener("click", ()=>{
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
 
       activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
-      
+ 
       if (walletOne >= 10 || walletTwo >= 10) {
-         activePlayer === "One" ?(document.getElementsByClassName("containerScore")[0].innerHTML = '<div style = "margin-top: 50vh;transform: translateY(-50%); font-size: 30px; text-align: center; color: white; font-weight: 800; ">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px; margin-left: 5px; "> Joueur n°1</span>, vous avez gagné!!</div>') : 
-         (diceSpace.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/>');
-         buttonRollDice.classList.remove("active");
-         buttonHold.classList.remove("active");
-        
-         // document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-         // document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+      
+         document.getElementsByClassName("alert")[0].style.display = "block";
+         activePlayer === "One" ?(document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
+         (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+         buttonRollDice.classList.replace( "active", "disabled");
+         buttonHold.classList.replace( "active", "disabled");
          gamePlaying = false;
      } else {
          //Next player
@@ -148,6 +150,7 @@ function nextPlayer() {
 
    // document.querySelector('.dice').style.display = 'none';
 
-   // diceSpace.innerHTML = dice[0]["picture"] + '<p id="diceScore">Résultat: 1</p>';
 
 }
+
+

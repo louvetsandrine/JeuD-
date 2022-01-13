@@ -165,3 +165,7 @@ i {
 span, #exampleModalLabel {
   font-weight: 600;
 }
+
+.alert {
+  display: none;
+}
