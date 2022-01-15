@@ -115,6 +115,8 @@ buttonHold.addEventListener("click", ()=>{
          (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
+         startPlayerOne.classList.toggle("startPlayerButton");
+         startPlayerTwo.classList.remove("startPlayerButton");
          gamePlaying = false;
      } else {
          //Next player
