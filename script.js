@@ -47,8 +47,6 @@ const dice = [
    }
 ]
 
-// var scoreStartOne = 0;
-// var scoreStartTwo = 0;
 
 var playerActive, roundScore, gamePlaying, walletOne = 0, walletTwo = 0;
 
@@ -69,7 +67,7 @@ buttonStart.addEventListener("click", ()=>{
    buttonHold.classList.replace( "disabled", "active" );
    startPlayerOne.classList.toggle("startPlayerButton");
    startPlayerTwo.classList.remove("startPlayerButton");
-   textPlayerOne.classList.toggle("startPlayerButton");
+   textPlayerOne.classList.add("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
    document.getElementsByClassName("alert")[0].style.display = "none";
 
@@ -111,12 +109,14 @@ buttonHold.addEventListener("click", ()=>{
       if (walletOne >= 10 || walletTwo >= 10) {
       
          document.getElementsByClassName("alert")[0].style.display = "block";
-         activePlayer === "One" ?(document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
-         (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné<p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+         activePlayer === "One" ?(document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
+         (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
-         startPlayerOne.classList.toggle("startPlayerButton");
+         startPlayerOne.classList.remove("startPlayerButton");
          startPlayerTwo.classList.remove("startPlayerButton");
+         textPlayerOne.classList.remove("startPlayerButton");
+         textPlayerTwo.classList.remove("startPlayerButton");
          gamePlaying = false;
      } else {
          //Next player
@@ -141,17 +141,6 @@ function nextPlayer() {
    startPlayerTwo.classList.toggle("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
    textPlayerTwo.classList.toggle("startPlayerButton");
-
-     
-
-   // document.querySelector('.player-0-panel').classList.toggle('active');
-   // document.querySelector('.player-1-panel').classList.toggle('active');
-
-   //document.querySelector('.player-0-panel').classList.remove('active');
-   //document.querySelector('.player-1-panel').classList.add('active');
-
-   // document.querySelector('.dice').style.display = 'none';
-
 
 }
 

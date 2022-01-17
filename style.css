@@ -8,11 +8,12 @@
 } */
 
 body {
-    background-image: url(images/cover.jpg);
+    /* background-image: url(images/cover.jpg); */
+    background-color: black;
     background-size: cover;
     padding:20px;
     margin:0;
-    background-color:white;
+    /* background-color:white; */
 }
 
 .containerPage {
@@ -123,7 +124,9 @@ i {
     vertical-align: middle;
 }
 
-
+.fa-glass-cheers {
+    font-size: 40px;
+}
 
 .btn {
     font-weight: 700;
@@ -168,4 +171,6 @@ span, #exampleModalLabel {
 
 .alert {
   display: none;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
