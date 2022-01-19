@@ -48,13 +48,15 @@ const dice = [
 ]
 
 
-var playerActive, roundScore, gamePlaying, walletOne = 0, walletTwo = 0;
+var playerActive, roundScore, gamePlaying, walletOne, walletTwo;
 
 buttonStart.addEventListener("click", ()=>{
    console.log("buttonStart cliqué");
 
    activePlayer = "One";
    roundScore = 0;
+   walletOne = 0;
+   walletTwo = 0;
    gamePlaying = true;
    
    diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';

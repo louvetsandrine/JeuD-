@@ -1,32 +1,33 @@
 *{
     font-family: 'Lato', sans-serif;
     font-size: 14px;
+    /* padding: 0;
+    margin: 0; */
+    
 }
 
-/* html, body {
-    height: 100%;
-} */
+
+
 
 body {
-    /* background-image: url(images/cover.jpg); */
-    background-color: black;
+    background-image: url(images/cover.jpg);
+    /* background-color: black; */
     background-size: cover;
-    padding:20px;
-    margin:0;
+    /* padding: 20px; */
+    /* margin: auto; */
     /* background-color:white; */
+    line-height: 1.5;
+    /* height: 100vh; */
+   
+  
 }
 
-.containerPage {
-  vertical-align: middle;
-
-}
 
 .containerScore {
     /* background-image: linear-gradient(to bottom, rgba(255,128,255,0.5), grey); */
     background-color: white;
     margin: 20px;
     padding: 20px;
-    height: 100%;
     border-radius: 8px;
   
 
