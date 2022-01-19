@@ -22,27 +22,27 @@ const walletPlayerTwo = document.getElementById("walletPlayerTwo");
 
 const dice = [ 
    {
-      picture:'<img class="img-fluid" src="images/dice-1.png" id="diceOne"/>', 
+      picture:'<img class="img-fluid" src="images/dice-1.png" id="diceOne" alt="Dé n°1"/>', 
       score:1
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-2.png" id="diceTwo"/>',
+      picture:'<img class="img-fluid" src="images/dice-2.png" id="diceTwo" alt="Dé n°2"/>',
       score:2
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-3.png" 0" id="diceThree"/>',
+      picture:'<img class="img-fluid" src="images/dice-3.png" 0" id="diceThree" alt="Dé n°3"/>',
       score:3
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-4.png" id="diceFour"">',
+      picture:'<img class="img-fluid" src="images/dice-4.png" id="diceFour" alt="Dé n°4"/>',
       score:4
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-5.png" id="diceFive"/>',
+      picture:'<img class="img-fluid" src="images/dice-5.png" id="diceFive" alt="Dé n°5"/>',
       score:5
    },
    {
-      picture:'<img class="img-fluid" src="images/dice-6.png" id="diceSix"/>',
+      picture:'<img class="img-fluid" src="images/dice-6.png" id="diceSix" alt="Dé n°6"/>',
       score:6
    }
 ]
