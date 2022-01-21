@@ -1,22 +1,17 @@
-const buttonStart = document.getElementById("buttonStart");
-const startPlayerOne = document.getElementById("startPlayerOne");
-const startPlayerTwo = document.getElementById("startPlayerTwo");
-const textPlayerOne = document.getElementById("textPlayerOne");
-const textPlayerTwo = document.getElementById("textPlayerTwo");
-const buttonRollDice = document.getElementById("buttonRollDice");
-const buttonHold = document.getElementById("buttonHold");
-const diceSpace = document.getElementById("diceSpace");
-const diceScore = document.getElementById("diceScore");
-const diceOnce = document.getElementById("diceOne");
-const diceTwo = document.getElementById("diceTwo");
-const diceThree = document.getElementById("diceThree");
-const diceFour = document.getElementById("diceFour");
-const diceFive = document.getElementById("diceFive");
-const diceSix = document.getElementById("diceSix");
-const diceScorePlayerOne = document.getElementById("diceScorePlayerOne");
-const diceScorePlayerTwo = document.getElementById("diceScorePlayerTwo");
-const walletPlayerOne = document.getElementById("walletPlayerOne");
-const walletPlayerTwo = document.getElementById("walletPlayerTwo");
+let buttonStart = document.getElementById("buttonStart");
+let startPlayerOne = document.getElementById("startPlayerOne");
+let startPlayerTwo = document.getElementById("startPlayerTwo");
+let textPlayerOne = document.getElementById("textPlayerOne");
+let textPlayerTwo = document.getElementById("textPlayerTwo");
+let buttonRollDice = document.getElementById("buttonRollDice");
+let buttonHold = document.getElementById("buttonHold");
+let diceSpace = document.getElementById("diceSpace");
+let diceScore = document.getElementById("diceScore");
+let diceScorePlayerOne = document.getElementById("diceScorePlayerOne");
+let diceScorePlayerTwo = document.getElementById("diceScorePlayerTwo");
+let walletPlayerOne = document.getElementById("walletPlayerOne");
+let walletPlayerTwo = document.getElementById("walletPlayerTwo");
+let alertMessage = document.getElementsByClassName("alert");
 
 
 const dice = [ 
@@ -47,7 +42,7 @@ const dice = [
 ]
 
 
-var playerActive, roundScore, gamePlaying, walletOne, walletTwo;
+let playerActive, roundScore, gamePlaying, walletOne, walletTwo;
 
 buttonStart.addEventListener("click", ()=>{
 
@@ -68,14 +63,14 @@ buttonStart.addEventListener("click", ()=>{
    startPlayerTwo.classList.remove("startPlayerButton");
    textPlayerOne.classList.add("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
-   document.getElementsByClassName("alert")[0].style.display = "none";
+   alertMessage[0].style.display = "none";
 })
 
 
 
 buttonRollDice.addEventListener("click", ()=>{
 
-   var randomNumber = Math.floor(Math.random()*dice.length);
+   let randomNumber = Math.floor(Math.random()*dice.length);
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
 
    if(gamePlaying){
@@ -95,12 +90,12 @@ buttonRollDice.addEventListener("click", ()=>{
 buttonHold.addEventListener("click", ()=>{
    if(gamePlaying){
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
-      activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
+      activePlayer === "One" ? (walletPlayerOne.innerHTML = walletOne) : (walletPlayerTwo.innerHTML = walletTwo);
  
       if (walletOne >= 10 || walletTwo >= 10) {
-         document.getElementsByClassName("alert")[0].style.display = "block";
-         activePlayer === "One" ?(document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
-         (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+         alertMessage[0].style.display = "block";
+         activePlayer === "One" ?(alertMessage[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
+         (alertMessage[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
          startPlayerOne.classList.remove("startPlayerButton");
@@ -120,8 +115,8 @@ function nextPlayer() {
    activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;
 
-   document.getElementById("diceScorePlayerOne").innerHTML = "0";
-   document.getElementById("diceScorePlayerTwo").innerHTML = "0";
+   diceScorePlayerOne.innerHTML = "0";
+   diceScorePlayerTwo.innerHTML = "0";
    startPlayerOne.classList.toggle("startPlayerButton");
    startPlayerTwo.classList.toggle("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
