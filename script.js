@@ -1,5 +1,4 @@
 const buttonStart = document.getElementById("buttonStart");
-// const buttonRules = document.getElementById("buttonRules");
 const startPlayerOne = document.getElementById("startPlayerOne");
 const startPlayerTwo = document.getElementById("startPlayerTwo");
 const textPlayerOne = document.getElementById("textPlayerOne");
@@ -51,7 +50,6 @@ const dice = [
 var playerActive, roundScore, gamePlaying, walletOne, walletTwo;
 
 buttonStart.addEventListener("click", ()=>{
-   console.log("buttonStart cliqué");
 
    activePlayer = "One";
    roundScore = 0;
@@ -59,8 +57,7 @@ buttonStart.addEventListener("click", ()=>{
    walletTwo = 0;
    gamePlaying = true;
    
-   diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" />';
-
+   diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" alt="Lancé de dé" />';
    diceScorePlayerOne.innerHTML = "0";
    diceScorePlayerTwo.innerHTML = "0";
    walletPlayerOne.innerHTML = "0";
@@ -72,25 +69,18 @@ buttonStart.addEventListener("click", ()=>{
    textPlayerOne.classList.add("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
    document.getElementsByClassName("alert")[0].style.display = "none";
-
-   
 })
 
 
 
 buttonRollDice.addEventListener("click", ()=>{
-   console.log("activeplayer", activePlayer);
 
    var randomNumber = Math.floor(Math.random()*dice.length);
-   
-   console.log(randomNumber);
-   console.log("roundscore", roundScore);
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
 
    if(gamePlaying){
 
       if( (randomNumber+1) !== 1){
-         
          roundScore += (randomNumber + 1);
          console.log("roundScore += randomNumber: ", roundScore);
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
@@ -105,11 +95,9 @@ buttonRollDice.addEventListener("click", ()=>{
 buttonHold.addEventListener("click", ()=>{
    if(gamePlaying){
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
-
       activePlayer === "One" ? (document.getElementById("walletPlayerOne").innerHTML = walletOne) : (document.getElementById("walletPlayerTwo").innerHTML = walletTwo);
  
       if (walletOne >= 10 || walletTwo >= 10) {
-      
          document.getElementsByClassName("alert")[0].style.display = "block";
          activePlayer === "One" ?(document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
          (document.getElementsByClassName("alert")[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
@@ -121,21 +109,16 @@ buttonHold.addEventListener("click", ()=>{
          textPlayerTwo.classList.remove("startPlayerButton");
          gamePlaying = false;
      } else {
-         //Next player
          nextPlayer();
      }
-      
    }
 })
 
 
 
 function nextPlayer() {
-   //Next player
    activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;
-
-   console.log("textplayerone", textPlayerOne)
 
    document.getElementById("diceScorePlayerOne").innerHTML = "0";
    document.getElementById("diceScorePlayerTwo").innerHTML = "0";
@@ -143,7 +126,6 @@ function nextPlayer() {
    startPlayerTwo.classList.toggle("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
    textPlayerTwo.classList.toggle("startPlayerButton");
-
 }
 
 

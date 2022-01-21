@@ -1,0 +1,62 @@
+@media  (max-width: 480px) {
+  * {
+    font-size: 14px;
+  }
+
+
+  .containerScore {
+      margin: 20px;
+      padding: 20px;
+  }
+
+  .h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+  }
+
+  #textPlayerOne, #textPlayerTwo, .textScoreTemporaryOne, .textScoreTemporaryTwo, .textWallet {
+      font-size: 20px;
+  }
+
+  .textScore {
+      font-size: 18px;
+  }
+
+  #diceOne, #diceTwo, #diceThree, #diceFour, #diceFive, #diceSix {
+      width: 100px;
+      height: 100px;
+  }
+
+  i {
+      font-size: 10px;
+      margin-right: 10px;
+  }
+
+  .fa-glass-cheers {
+      font-size: 20px;
+  }
+
+  .btn {
+      font-size: 8px;
+  }
+
+  #buttonRollDice, #buttonStart {
+      margin-right: 10px;
+  }
+
+  #diceScore {
+    font-size: 15px;
+  }
+
+  #imgRollDice {
+      width: 150px;
+      height: 150px;
+  }
+
+
+
+  .alert {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
