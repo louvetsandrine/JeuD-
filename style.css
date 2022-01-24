@@ -146,7 +146,7 @@ span, #exampleModalLabel {
   font-weight: 600;
 }
 
-.alert {
+#alertMessage {
   display: none;
   margin-top: 30px;
   margin-bottom: 10px;

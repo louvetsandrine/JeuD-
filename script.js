@@ -11,7 +11,7 @@ let diceScorePlayerOne = document.getElementById("diceScorePlayerOne");
 let diceScorePlayerTwo = document.getElementById("diceScorePlayerTwo");
 let walletPlayerOne = document.getElementById("walletPlayerOne");
 let walletPlayerTwo = document.getElementById("walletPlayerTwo");
-let alertMessage = document.getElementsByClassName("alert");
+let alertMessage = document.getElementById("alertMessage");
 
 
 const dice = [ 
@@ -44,14 +44,14 @@ const dice = [
 
 let playerActive, roundScore, gamePlaying, walletOne, walletTwo;
 
+//Evénement DOM se déclenchant au clic sur le Bouton "Nouvelle partie"
 buttonStart.addEventListener("click", ()=>{
-
+   
+   gamePlaying = true;
    activePlayer = "One";
    roundScore = 0;
    walletOne = 0;
    walletTwo = 0;
-   gamePlaying = true;
-   
    diceSpace.innerHTML = '<img class="" src="images/rollDice.gif" id="imgRollDice" alt="Lancé de dé" />';
    diceScorePlayerOne.innerHTML = "0";
    diceScorePlayerTwo.innerHTML = "0";
@@ -63,39 +63,40 @@ buttonStart.addEventListener("click", ()=>{
    startPlayerTwo.classList.remove("startPlayerButton");
    textPlayerOne.classList.add("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
-   alertMessage[0].style.display = "none";
+   alertMessage.style.display = "none";
 })
 
 
-
+//Evénement DOM se déclenchant au clic sur le Bouton "Lancer le dé"
 buttonRollDice.addEventListener("click", ()=>{
 
-   let randomNumber = Math.floor(Math.random()*dice.length);
+   let randomNumber = Math.floor(Math.random()*dice.length);  /**Tirage d'un nombre au hasard entre 0 et 5 */
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
 
-   if(gamePlaying){
+   if(gamePlaying){ /** Si le jeu a commmencé */
 
-      if( (randomNumber+1) !== 1){
+      if( (randomNumber+1) !== 1){ /** Si le résultat du lancé du dé est différent de 1 */
          roundScore += (randomNumber + 1);
          console.log("roundScore += randomNumber: ", roundScore);
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
-      } else {
+      } else { /** sinon c'est à l'autre joueur */
          nextPlayer()
       }
    }
 })
 
 
-
+//Evénement DOM se déclenchant au clic sur le Bouton "Sécuriser votre gain"
 buttonHold.addEventListener("click", ()=>{
    if(gamePlaying){
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
       activePlayer === "One" ? (walletPlayerOne.innerHTML = walletOne) : (walletPlayerTwo.innerHTML = walletTwo);
  
       if (walletOne >= 10 || walletTwo >= 10) {
-         alertMessage[0].style.display = "block";
-         activePlayer === "One" ?(alertMessage[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
-         (alertMessage[0].innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+         console.log("wallet", walletOne)
+         alertMessage.style.display = "block";
+         activePlayer === "One" ?(alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
+         (alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
          startPlayerOne.classList.remove("startPlayerButton");
@@ -110,7 +111,7 @@ buttonHold.addEventListener("click", ()=>{
 })
 
 
-
+// Fonction pour permettre à l'autre joueur de jouer 
 function nextPlayer() {
    activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;

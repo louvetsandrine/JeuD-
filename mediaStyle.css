@@ -1,3 +1,5 @@
+/* Adaptation de la taille des polices et des images pour les appareils <= 480px */
+
 @media  (max-width: 480px) {
   * {
     font-size: 14px;
