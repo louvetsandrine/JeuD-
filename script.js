@@ -59,7 +59,7 @@ buttonStart.addEventListener("click", ()=>{
    walletPlayerTwo.innerHTML = "0";
    buttonRollDice.classList.replace( "disabled", "active" );
    buttonHold.classList.replace( "disabled", "active" );
-   startPlayerOne.classList.toggle("startPlayerButton");
+   startPlayerOne.classList.add("startPlayerButton");
    startPlayerTwo.classList.remove("startPlayerButton");
    textPlayerOne.classList.add("startPlayerButton");
    textPlayerTwo.classList.remove("startPlayerButton");
@@ -77,7 +77,6 @@ buttonRollDice.addEventListener("click", ()=>{
 
       if( (randomNumber+1) !== 1){ /** Si le résultat du lancé du dé est différent de 1 */
          roundScore += (randomNumber + 1);
-         console.log("roundScore += randomNumber: ", roundScore);
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
       } else { /** sinon c'est à l'autre joueur */
          nextPlayer()
@@ -93,10 +92,9 @@ buttonHold.addEventListener("click", ()=>{
       activePlayer === "One" ? (walletPlayerOne.innerHTML = walletOne) : (walletPlayerTwo.innerHTML = walletTwo);
  
       if (walletOne >= 10 || walletTwo >= 10) {
-         console.log("wallet", walletOne)
          alertMessage.style.display = "block";
-         activePlayer === "One" ?(alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>') : 
-         (alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+         activePlayer === "One" ?(alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/></button>') : 
+         (alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/></button>');
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
          startPlayerOne.classList.remove("startPlayerButton");
