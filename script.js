@@ -13,7 +13,7 @@ let walletPlayerOne = document.getElementById("walletPlayerOne");
 let walletPlayerTwo = document.getElementById("walletPlayerTwo");
 let alertMessage = document.getElementById("alertMessage");
 
-
+// Tableau avec la liste des images des différentes faces du dé et de leur score
 const dice = [ 
    {
       picture:'<img class="img-fluid" src="images/dice-1.png" id="diceOne" alt="Dé n°1"/>', 
@@ -44,9 +44,10 @@ const dice = [
 
 let playerActive, roundScore, gamePlaying, walletOne, walletTwo;
 
-//Evénement DOM se déclenchant au clic sur le Bouton "Nouvelle partie"
+// Evénement DOM se déclenchant au clic sur le Bouton "Nouvelle partie"
 buttonStart.addEventListener("click", ()=>{
-   
+   // Démarrage du jeu en commançant par le joueur n°1 avec mis à 0 des scores temporaires et des gains 
+   // et activations des boutons "Lancé le dé" et "Sécuriser votre gain"
    gamePlaying = true;
    activePlayer = "One";
    roundScore = 0;
@@ -67,34 +68,41 @@ buttonStart.addEventListener("click", ()=>{
 })
 
 
-//Evénement DOM se déclenchant au clic sur le Bouton "Lancer le dé"
+// Evénement DOM se déclenchant au clic sur le Bouton "Lancer le dé"
 buttonRollDice.addEventListener("click", ()=>{
-
-   let randomNumber = Math.floor(Math.random()*dice.length);  /**Tirage d'un nombre au hasard entre 0 et 5 */
+   // Tirage d'un nombre au hasard entre 0 et 5 et affichage du résultat sous le dé
+   let randomNumber = Math.floor(Math.random()*dice.length);  
    diceSpace.innerHTML = dice[randomNumber]["picture"] + '<p id="diceScore">Résultat: ' + (randomNumber+1) + '</p>';
-
-   if(gamePlaying){ /** Si le jeu a commmencé */
-
-      if( (randomNumber+1) !== 1){ /** Si le résultat du lancé du dé est différent de 1 */
+   // Si le jeu commence
+   if(gamePlaying){ 
+      // Si le résultat du lancé du dé est différent de 1 
+      if( (randomNumber+1) !== 1){ 
          roundScore += (randomNumber + 1);
+         //Affichage du score temporaire sous le joueur actif
          document.getElementById("diceScorePlayer" + activePlayer).innerHTML = roundScore;
-      } else { /** sinon c'est à l'autre joueur */
+      } else { 
+         // Joueur suivant
          nextPlayer()
       }
    }
 })
 
 
-//Evénement DOM se déclenchant au clic sur le Bouton "Sécuriser votre gain"
+// Evénement DOM se déclenchant au clic sur le Bouton "Sécuriser votre gain"
 buttonHold.addEventListener("click", ()=>{
+   // Si le jeu commence
    if(gamePlaying){
+      // Addition du score temporaire au gain du joueur actif
       activePlayer === "One" ? (walletOne += roundScore) : (walletTwo += roundScore);
       activePlayer === "One" ? (walletPlayerOne.innerHTML = walletOne) : (walletPlayerTwo.innerHTML = walletTwo);
- 
-      if (walletOne >= 10 || walletTwo >= 10) {
+      
+      // Si le gain est >=100
+      if(walletOne >= 100 || walletTwo >= 100) { 
+         // Message félicitant le joueur gagnant
          alertMessage.style.display = "block";
          activePlayer === "One" ?(alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°1</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/></button>') : 
          (alertMessage.innerHTML = '<p style = "font-size: 30px;">Félicitations, <span style = "font-weight: 800; color: red; font-size: 30px">Joueur n°2</span>, vous avez gagné!! <i class="fas fa-glass-cheers"></i><p/></button>');
+         // Desactivation des boutons "Lancer le dé" et "Sécuriser votre gain", texte et rond remis en noir et fin de la partie
          buttonRollDice.classList.replace( "active", "disabled");
          buttonHold.classList.replace( "active", "disabled");
          startPlayerOne.classList.remove("startPlayerButton");
@@ -103,14 +111,15 @@ buttonHold.addEventListener("click", ()=>{
          textPlayerTwo.classList.remove("startPlayerButton");
          gamePlaying = false;
      } else {
-         nextPlayer();
+         // Joueur suivant
+         nextPlayer();  
      }
    }
 })
 
 
-// Fonction pour permettre à l'autre joueur de jouer 
-function nextPlayer() {
+// Fonction pour permettre au joueur suivant de jouer 
+const nextPlayer = () => {
    activePlayer === "One" ? activePlayer = "Two" : activePlayer = "One";
    roundScore = 0;
 
@@ -120,6 +129,6 @@ function nextPlayer() {
    startPlayerTwo.classList.toggle("startPlayerButton");
    textPlayerOne.classList.toggle("startPlayerButton");
    textPlayerTwo.classList.toggle("startPlayerButton");
-}
+};
 
 

@@ -50,7 +50,8 @@ body {
     -ms-animation: fadeIn ease 2s;
 }
 
-@keyframes fadeIn { /* animation du dé */
+/* animation du dé */
+  @keyframes fadeIn { 
     0% {
       opacity:0;
     }
