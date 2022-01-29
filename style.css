@@ -1,4 +1,4 @@
-*{
+* {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
 }
@@ -53,46 +53,46 @@ body {
 /* animation du dé */
   @keyframes fadeIn { 
     0% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
   
   @-moz-keyframes fadeIn {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
   
   @-webkit-keyframes fadeIn {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
   
   @-o-keyframes fadeIn {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
   
   @-ms-keyframes fadeIn {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
 
@@ -140,15 +140,15 @@ i {
 
   
 .startPlayerButton {
-  color: red;
+    color: red;
 }
 
 span, #exampleModalLabel {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 #alertMessage {
-  display: none;
-  margin-top: 30px;
-  margin-bottom: 10px;
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
